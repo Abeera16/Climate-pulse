@@ -77,20 +77,13 @@ st.markdown("---")
 @st.cache_data
 def load_data():
     try:
-        df_daily = pd.read_csv(os.path.join('Data_Aggregation_csv', 'data_cleaned_daily.csv'))
-        df_monthly = pd.read_csv(os.path.join('Data_Aggregation_csv', 'data_cleaned_monthly.csv'))
+        df_daily = pd.read_csv(os.path.join('DATA_VIS_ORIGINAL_PROJECT', 'Data_Aggregation_csv', 'data_cleaned_daily.csv'))
+        df_monthly = pd.read_csv(os.path.join('DATA_VIS_ORIGINAL_PROJECT', 'Data_Aggregation_csv', 'data_cleaned_monthly.csv'))
         df_daily['Date'] = pd.to_datetime(df_daily['Date'])
         df_monthly['Date'] = pd.to_datetime(df_monthly['Date'])
         return df_daily, df_monthly
-    except FileNotFoundError as e:
-        st.error(f"⚠️ Data files not found. Debug info below:")
-        st.code(f"Error: {e}")
-        st.code(f"Current working directory: {os.getcwd()}")
-        st.code(f"Files in cwd: {os.listdir('.')}")
-        if os.path.exists('Data_Aggregation_csv'):
-            st.code(f"Files in Data_Aggregation_csv: {os.listdir('Data_Aggregation_csv')}")
-        else:
-            st.code("Data_Aggregation_csv folder does NOT exist at this path")
+    except FileNotFoundError:
+        st.error("⚠️ Data files not found. Please run main_analysis.py first to generate cleaned data.")
         st.stop()
 
 df_daily, df_monthly = load_data()
