@@ -1,0 +1,9 @@
+/* Dark KPI card styles for Streamlit */
+.kpi-card {
+    background-color: #0f1720 !important;
+    color: #e6eef6 !important;
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: none;
+}
+.kpi-card .card-title { color: rgba(255,255,255,0.75); font-size: 0.9rem; }
+.kpi-card .kpi-value { color: #ffffff; font-size: 1.4rem; font-weight: 700; }
