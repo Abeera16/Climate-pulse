@@ -77,8 +77,8 @@ st.markdown("---")
 @st.cache_data
 def load_data():
     try:
-        df_daily = pd.read_csv( r'C:\Users\abeer\Downloads\DATA_VIS_ORIGINAL_PROJECT\Data_Aggregation_csv\data_cleaned_daily.csv')
-        df_monthly = pd.read_csv(r'C:\Users\abeer\Downloads\DATA_VIS_ORIGINAL_PROJECT\Data_Aggregation_csv\data_cleaned_monthly.csv')
+        df_daily = pd.read_csv( 'Data_Aggregation_csv\data_cleaned_daily.csv')
+        df_monthly = pd.read_csv('Data_Aggregation_csv\data_cleaned_monthly.csv')
         df_daily['Date'] = pd.to_datetime(df_daily['Date'])
         df_monthly['Date'] = pd.to_datetime(df_monthly['Date'])
         return df_daily, df_monthly
